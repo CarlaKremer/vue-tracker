@@ -1,27 +1,26 @@
 <template>
   <header>
-    <h1>
-      
-    </h1>
+    <h1></h1>
   </header>
 </template>
 
-<script lang='ts'>
-import { defineComponent } from 'vue';
+<script lang="ts">
+import { defineComponent } from "vue";
 export default defineComponent({
-  name:'SideBar'
-})
+  name: "SideBar",
+});
 </script>
 
 <style scoped>
 header {
-  background: #AE6378;
+  background: #2f3137;
+  background: #ae63789c;
   width: 100%;
   height: 100vh;
-  padding:1rem;
+  padding: 1rem;
 }
 /* mobile: */
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
   header {
     padding: 2.5rem;
     height: auto;

@@ -9,25 +9,7 @@
         />
       </div>
       <div class="column">
-        <div
-          class="is-flex is-align-items-center is-justify-content-space-between"
-        >
-          <section>
-            <strong>{{ timeElapsed }}</strong>
-          </section>
-          <button class="button" @click="startCount">
-            <span class="icon">
-              <i class="fa-solid fa-play"></i>
-            </span>
-            <span>play</span>
-          </button>
-          <button class="button" @click="endCount">
-            <span class="icon">
-              <i class="fas fa-stop"></i>
-            </span>
-            <span>stop</span>
-          </button>
-        </div>
+        <TimerControl />
       </div>
     </div>
   </div>
@@ -35,33 +17,33 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import TimerControl from "./TimerControl.vue";
 export default defineComponent({
   name: "FormTask",
-  data() {
-    return {
-      timeInSeconds: 0,
-      counterReference:0
-    };
-  },
-  computed: {
-    timeElapsed(): string {
-      return new Date(this.timeInSeconds * 1000)
-        .toISOString()
-        .substring(11, 19);
-    },
-  },
-  methods: {
-    startCount() {
-      this.counterReference = setInterval(() => {
-        this.timeInSeconds += 1;
-      }, 1000);
-    },
-    endCount() {
-      clearInterval(this.counterReference)
-    },
+  components: {
+    TimerControl,
   },
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+::placeholder {
+  color: black;
+}
+input {
+  border: 2px solid #ae6378;
+  background-color: #eeecec;
+}
+button {
+  margin: 0px 5px 0 5px;
+  border: 3px solid #ae6378;
+  border-radius: 20px;
+  background-color: #eeecec;
+}
+.box {
+  align-items: center;
+  background-color: #383b42;
+  background-color: #2f3137;
+  border-radius: 0px;
+}
+</style>
